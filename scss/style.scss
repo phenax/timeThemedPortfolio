@@ -1,0 +1,146 @@
+@import 'import';
+
+body {
+	margin:0;
+	padding:0;
+	background-color:#ddd;
+	overflow:hidden;
+
+	/* CREATING A PLAYGROUND */
+	min-height:3000px;
+	min-width:3500px;
+}
+* {
+	font-family:Helvetica,sans-serif;
+	color:#888;
+	box-sizing:border-box;
+}
+
+nav {
+	position:fixed;
+	top:0;
+	left:50%;
+	z-index:100;
+	width:100%;
+
+	@include transform(translateX(-50%));
+
+	ul {
+		list-style-type:none;
+		padding:0;
+		margin:0;
+		text-align:center;
+		background-color:$blue;
+
+		@include box-shadow(0 0 10px 2px rgba(0,0,0,0.3));
+
+		li {
+			display:inline-block;
+
+			button {
+				font-size:18px;
+				border:none;
+				outline:none;
+				background-color:transparent;
+				cursor:pointer;
+				position:relative;
+				padding:10px 20px;
+				color:#fff;
+
+				@include transition(all 0.3s ease-in-out);
+
+				&::after {
+					content:" ";
+					position:absolute;
+					bottom:0;
+					left:0;
+					width:100%;
+					height:0;
+					background-color:#fff;
+
+					@include transition(all 0.3s ease-in-out);
+				}
+
+				&:hover {
+
+					&::after {
+						height:5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+main {
+
+	h2 {
+		text-align:center;
+	}
+
+	section {
+		position:absolute;
+		padding:20px;
+		background-color:#fff;
+		top:100px;
+		width:80%;
+		left:100px;
+		
+		border-top:7px solid $blue;
+
+		@include box-shadow(0 0 5px 2px rgba(0,0,0,0.2));
+
+		&.about {
+			top:600px;
+			left:2000px;
+			margin-bottom:80px;
+		}
+		&.contact {
+			top:2500px;
+			left:2000px;
+
+			a {
+				display:block;
+				color:$blue;
+				text-decoration:none;
+
+				&:hover {
+					text-decoration:underline;
+				}
+			}
+		}
+		&.stuff {
+			top:1500px;
+			left:100px;
+		}
+	}
+}
+
+header {
+	background-color:$blue;
+	position:fixed;
+	top:50%;
+	left:0;
+	@include transform(translateY(-50%));
+	padding:10px 0;
+	border-radius:0 10px 10px 0;
+
+	button {
+		display:block;
+		width:100%;
+		border:none;
+		outline:none;
+		color:#fff;
+		background-color:transparent;
+		font-weight:bold;
+		cursor:pointer;
+		padding:10px 0;
+		text-align:center;
+
+		@include transition(all 0.3s ease-in-out);
+
+		&:hover {
+			background-color:rgba(0,0,0,0.3);
+		}
+	}
+}
